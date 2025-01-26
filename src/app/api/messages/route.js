@@ -20,9 +20,10 @@ export async function POST(request) {
 
     messages.push(message);
     return NextResponse.json(message, {status: 201});
-  } catch (error) {
+  } catch (err) {
+    console.error("Message error:", err);
     return NextResponse.json(
-      {error: "Failed to process message"},
+      {error: "Fehler beim Speichern der Nachricht"},
       {status: 500}
     );
   }
