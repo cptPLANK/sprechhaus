@@ -1,7 +1,7 @@
 import {NextResponse} from "next/server";
 import {Message} from "../../../types";
 
-let messages: Message[] = [];
+const messages: Message[] = [];
 
 export async function GET() {
   return NextResponse.json(messages);
