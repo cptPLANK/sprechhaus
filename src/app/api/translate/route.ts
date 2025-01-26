@@ -26,8 +26,11 @@ export async function POST(request: Request) {
       temperature: 0.7,
     });
 
+    const translatedText =
+      completion.choices[0]?.message?.content?.trim() || text;
+
     return NextResponse.json({
-      text: completion.choices[0].message.content.trim(),
+      text: translatedText,
     });
   } catch (err) {
     console.error("Translation error:", err);
